@@ -1,28 +1,12 @@
 #!/usr/bin/env python3
-"""
-Asynchronous coroutine that waits for a random delay
-Returns:
-float: Random delay in seconds
-"""
-
+""" Takes int arg, waits for random delay """
 
 import asyncio
 import random
 
-async def wait_random(max_delay=10):
-    """
-    Asynchronous coroutine that waits for a random delay 
-    Returns:
-        float: Random delay in seconds.
-    """
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
 
-async def main():
-    """
-    Main asynchronous function that calls wait_random() and prints the delay.
-    """
-    delay = await wait_random()
-
-asyncio.run(main())
+async def wait_random(max_delay: int = 10) -> float:
+    """ Waits for random delay between 0 and max_delay, returns that """
+    actual_delay: float = random.uniform(0, max_delay)
+    await asyncio.sleep(actual_delay)
+    return actual_delay
